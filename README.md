@@ -1,5 +1,5 @@
 # IIS Developer Project Setup Tool
-This is intended for use by development teams for creating full tiered applications with one click.
+This is intended for use by development teams for creating three tier applications (as part of an N-Tier Architecture commonly used with ASP .NET) with one click.
 ____
 ## Usage
 
