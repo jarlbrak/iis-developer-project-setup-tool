@@ -18,8 +18,9 @@ dev.newproject.com
 
 biz.newproject.com
     /newproject
+    /subsite
 
 dat.newproject.com
     /newproject
-
+    /subsite
 ```
