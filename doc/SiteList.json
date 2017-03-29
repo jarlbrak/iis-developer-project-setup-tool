@@ -1,0 +1,92 @@
+{
+  "sites": [
+    {
+      "name": "NewProject",
+      "appTier": {
+        "parentSite": "",
+        "parentSitePhysicalPath": "",
+        "physicalPath": "C:\\Dev\\NewProject\\NewProject.AppTier.Facade.Website",
+        "url": "dev.NewProject.com",
+        "appPath": ""
+      },
+      "bizTier": {
+        "parentSite": "biz.newproject.com",
+        "parentSitePhysicalPath": "C:\\inetpub\\biz.newproject.com",
+        "physicalPath": "C:\\Dev\\NewProject\\NewProject.BizTier.Facade.WCFService",
+        "url": "",
+        "appPath": "NewProject"
+      },
+      "datTier": {
+        "parentSite": "dat.newproject.com",
+        "parentSitePhysicalPath": "C:\\inetpub\\dat.newproject.com",
+        "physicalPath": "C:\\Dev\\NewProject\\NewProject.DataTier.Facade.WCFService",
+        "url": "",
+        "appPath":"NewProject"
+      }
+    },
+     {
+      "name": "NewProjectAuth",
+      "appTier": {
+        "parentSite": "dev.NewProject.com",
+        "parentSitePhysicalPath": "C:\\Dev\\NewProject\\NewProject.AppTier.Facade.Website",
+        "physicalPath": "C:\\Dev\\NewProject\\NewProject.AppTier.Facade.Auth",
+        "url": "",
+        "appPath":"auth"
+      }
+    },
+    {
+      "name": "NewProjectWebApi",
+      "appTier": {
+        "parentSite": "dev.NewProject.com",
+        "parentSitePhysicalPath": "C:\\Dev\\NewProject\\NewProject.AppTier.Facade.Website",
+        "physicalPath": "C:\\Dev\\NewProject\\NewProject.AppTier.Facade.WebApi",
+        "url": "",
+        "appPath": "webapi"
+      }
+    },
+     {
+      "name": "NewProjectSubSite",
+      "appTier": {
+        "parentSite": "dev.NewProject.com",
+        "parentSitePhysicalPath": "C:\\inetpub\\dev.NewProject.com",
+        "physicalPath": "C:\\inetpub\\dev.NewProject.com\\SubSite",
+        "url": "",
+        "appPath": "SubSite"
+      }
+    },
+     {
+      "name": "NewProjectSubSiteWeb",
+      "appTier": {
+        "parentSite": "dev.NewProject.com/SubSite",
+        "parentSitePhysicalPath": "C:\\inetpub\\dev.NewProject.com\\SubSite",
+        "physicalPath": "C:\\Dev\\SubSite\\AppTier.Facade.Website",
+        "url": "",
+        "appPath": "web"
+      },
+      "bizTier": {
+        "parentSite": "biz.newproject.com",
+        "parentSitePhysicalPath": "C:\\inetpub\\biz.newproject.com",
+        "physicalPath": "C:\\Dev\\SubSite\\BizTier.Facade.Wcf",
+        "url": "",
+        "appPath": "SubSite"
+      },
+      "datTier": {
+        "parentSite": "dat.newproject.com",
+        "parentSitePhysicalPath": "C:\\inetpub\\dat.newproject.com",
+        "physicalPath": "C:\\Dev\\SubSite\\DataTier.Facade.Wcf",
+        "url": "",
+        "appPath":"SubSite"
+      }
+    },
+     {
+      "name": "NewProjectSubSiteWebApi",
+      "appTier": {
+        "parentSite": "dev.NewProject.com/SubSite",
+        "parentSitePhysicalPath": "C:\\inetpub\\dev.NewProject.com\\SubSite",
+        "physicalPath": "C:\\Dev\\SubSite\\AppTier.Facade.WebApi",
+        "url": "",
+        "appPath": "webapi"
+      }
+    }
+  ]
+}
