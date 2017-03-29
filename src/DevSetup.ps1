@@ -381,6 +381,10 @@ function Set-HostsEntry{
     $outLines | Write-File -Path $Path
 }
 
+# Parameters Required: [string]$siteName - this is the name of the site you want to create
+#                      [system.object]$tier - this is the object containing information about the tier you want to create
+#                      [boolean]$parentSite - this is a boolean to determine if the site has a parent site
+# This function will create a top level website with the given parameters.
 function CreateWebSite ([string]$siteName, [system.object]$tier, [boolean]$parentSite){
     if ($parentSite){
         $siteName = $tier.parentSite
@@ -402,6 +406,9 @@ function CreateWebSite ([string]$siteName, [system.object]$tier, [boolean]$paren
     }
 }
 
+# Parameters Required: [system.object]$site - this is the full site object that you want to create
+#                      [string]$tier - this is the name of the tier that should be created. This is typically arranged in heirarchy of app (presentation layer), biz (application layer), and dat (data layer).
+# This function will create a web application with the given parameters. It will also create a top level site if a parent is specified that does not exist.
 function CreateWebApplication([system.object]$site, [string]$tier){
     $appPool = ($site.name + "_" + $tier)
 
@@ -417,42 +424,36 @@ function CreateWebApplication([system.object]$site, [string]$tier){
     }
 }
 
+# Parameters Required: [system.object]$site - this is the full site object that you want to create
+# This function will create the web sites and web applications in a tiered architecture typically seen in ASP .NET web projects.
 function CreateTiers ([system.object] $site){
-    # If there is anything in the exists field then create the tier
     If ($site.appTier){
-        # If there is a defined parent site create a new web application
         If ($site.appTier.parentSite){
             CreateWebApplication -site $site -tier "appTier"
         }
-        # Otherwise it is a top level site
         Else {
             CreateWebsite -siteName $site.appTier.url -tier $site.appTier
         }
     }
-    # If there is anything in the exists field then create the tier
     If ($site.bizTier){
-        # If there is a defined parent site create a new web application
         If ($site.bizTier.parentSite){
             CreateWebApplication -site $site -tier "bizTier"
         }
-        # Otherwise it is a top level site
         Else {
             CreateWebsite -siteName $site.bizTier.url -tier $site.bizTier
         }
     }
-    # If there is anything in the exists field then create the tier
     If ($site.datTier){
-        # If there is a defined parent site create a new web application
         If ($site.datTier.parentSite){
             CreateWebApplication -site $site -tier "datTier"
         }
-        # Otherwise it is a top level site
         Else {
             CreateWebsite -siteName $site.datTier.url -tier $site.datTier
         }
     }
 }
 
+# Main
 $jsonObject = ConvertFrom-Json "$(get-content .\SiteList.json)"
 
 ForEach ($site in $jsonObject.sites){
