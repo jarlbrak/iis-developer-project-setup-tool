@@ -25,6 +25,7 @@
 
 Import-Module WebAdministration
 
+# Carbon Functions Begin
 function Use-CallerPreference{
     # Licensed under the Apache License, Version 2.0 (the "License");
     # you may not use this file except in compliance with the License.
@@ -380,6 +381,7 @@ function Set-HostsEntry{
     Write-Verbose -Message ('[HOSTS]  [{0}]  {1,-45}  {2}' -f $Path,$IPAddress,$HostName)
     $outLines | Write-File -Path $Path
 }
+# Carbon Functions End
 
 # Parameters Required: [string]$siteName - this is the name of the site you want to create
 #                      [system.object]$tier - this is the object containing information about the tier you want to create
